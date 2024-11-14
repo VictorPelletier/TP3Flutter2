@@ -154,7 +154,16 @@ class _MyHomePageState extends State<MyHomePage> {
             child: const Icon(Icons.login),
           ),
         ],
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+      // This trailing comma makes auto-formatting nicer for build methods.
+      bottomNavigationBar: MaterialButton(
+        onPressed: () async {
+          await GoogleSignIn().signOut();
+          await FirebaseAuth.instance.signOut();
+          setState(() {});
+        },
+        child: Text("signout"),
+      ),
     );
   }
 
